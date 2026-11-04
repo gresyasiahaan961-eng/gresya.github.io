@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Gresya Seltilina Siahaan</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0b1120;
+            color: white;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11,17,32,0.95);
+            z-index: 1000;
+            border-bottom: 1px solid #25334c;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 22px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        section {
+            padding: 100px 10%;
+        }
+
+        .home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .home-text h3 {
+            color: #38bdf8;
+            font-size: 22px;
+        }
+
+        .home-text h1 {
+            font-size: 48px;
+            margin: 15px 0;
+        }
+
+        .home-text h2 {
+            font-size: 25px;
+            color: #94a3b8;
+        }
+
+        .home-text p {
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #0284c7;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #38bdf8;
+            transform: translateY(-3px);
+        }
+
+        .profile-box {
+            width: 280px;
+            height: 280px;
+            border: 4px solid #38bdf8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #17243a;
+            font-size: 85px;
+            color: #38bdf8;
+            flex-shrink: 0;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 45px;
+        }
+
+        .title span {
+            color: #38bdf8;
+        }
+
+        .about-content {
+            background: #17243a;
+            padding: 35px;
+            border-radius: 15px;
+            line-height: 1.9;
+            color: #cbd5e1;
+            border: 1px solid #334155;
+        }
+
+        .biodata {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .biodata div {
+            background: #24334c;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .biodata strong {
+            color: #38bdf8;
+        }
+
+        .education {
+            border-left: 3px solid #38bdf8;
+            padding: 20px 30px;
+            background: #17243a;
+            border-radius: 10px;
+        }
+
+        .education h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .education p {
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #17243a;
+            padding: 25px;
+            text-align: center;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: #38bdf8;
+        }
+
+        .skill-card .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: #cbd5e1;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #17243a;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+        }
+
+        .project-card h3 {
+            color: #38bdf8;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        .contact-box {
+            text-align: center;
+            background: #17243a;
+            padding: 35px;
+            border-radius: 15px;
+            line-height: 2;
+        }
+
+        .contact-box p {
+            color: #cbd5e1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #070c18;
+            color: #94a3b8;
+        }
+
+        @media(max-width: 768px) {
+            header {
+                padding: 15px 5%;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0;
+                font-size: 12px;
+            }
+
+            section {
+                padding: 100px 7%;
+            }
+
+            .home {
+                flex-direction: column-reverse;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .home-text h1 {
+                font-size: 34px;
+            }
+
+            .home-text h2 {
+                font-size: 20px;
+            }
+
+            .profile-box {
+                width: 200px;
+                height: 200px;
+                font-size: 60px;
+            }
+
+            .skills-container,
+            .project-container,
+            .biodata {
+                grid-template-columns: 1fr;
+            }
+
+            .title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">GRESYA.</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">Profil</a>
+        <a href="#pendidikan">Pendidikan</a>
+        <a href="#skills">Keahlian</a>
+        <a href="#project">Proyek</a>
+        <a href="#contact">Kontak</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<section class="home" id="home">
+
+    <div class="home-text">
+        <h3>HALO, SELAMAT DATANG!</h3>
+
+        <h1>GRESYA SELTILINA SIAHAAN</h1>
+
+        <h2>Pelajar | Teknik Komputer dan Jaringan</h2>
+
+        <p>
+            Saya adalah seorang siswi yang memiliki semangat
+            belajar tinggi, tertarik dengan dunia teknologi,
+            komputer, jaringan, dan perkembangan digital.
+            Saya ingin terus mengembangkan kemampuan serta
+            menambah pengalaman di bidang teknologi informasi.
+        </p>
+
+        <a href="#about" class="btn">Lihat Profil Saya</a>
+    </div>
+
+    <div class="profile-box">
+        GS
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+
+    <h2 class="title">Tentang <span>Saya</span></h2>
+
+    <div class="about-content">
+
+        <p>
+            Perkenalkan, nama saya Gresya Seltilina Siahaan.
+            Saya merupakan seorang pelajar yang mengambil
+            jurusan Teknik Komputer dan Jaringan (TKJ).
+            Saya memiliki ketertarikan dalam mempelajari
+            perangkat komputer, instalasi sistem operasi,
+            jaringan komputer, serta teknologi informasi.
+        </p>
+
+        <p>
+            Saya adalah pribadi yang ingin terus belajar,
+            disiplin, bertanggung jawab, dan berusaha
+            mengembangkan potensi diri agar dapat menjadi
+            seseorang yang memiliki keterampilan dan
+            pengetahuan di bidang teknologi.
+        </p>
+
+        <div class="biodata">
+
+            <div><strong>Nama:</strong><br>
+                Gresya Seltilina Siahaan</div>
+
+            <div><strong>Jurusan:</strong><br>
+                Teknik Komputer dan Jaringan</div>
+
+            <div><strong>Status:</strong><br>
+                Pelajar / Siswi</div>
+
+            <div><strong>Bidang:</strong><br>
+                Teknologi Informasi</div>
+
+            <div><strong>Minat:</strong><br>
+                Komputer dan Networking</div>
+
+            <div><strong>Tujuan:</strong><br>
+                Mengembangkan kemampuan teknologi</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PENDIDIKAN -->
+<section id="pendidikan">
+
+    <h2 class="title">Riwayat <span>Pendidikan</span></h2>
+
+    <div class="education">
+
+        <h3>SMK - Teknik Komputer dan Jaringan</h3>
+
+        <p>
+            Saat ini saya menempuh pendidikan di Sekolah
+            Menengah Kejuruan (SMK) dengan mengambil
+            jurusan Teknik Komputer dan Jaringan (TKJ).
+        </p>
+
+        <p>
+            Dalam jurusan ini saya mempelajari dasar-dasar
+            komputer, perakitan PC, instalasi sistem operasi,
+            konfigurasi jaringan, perangkat jaringan,
+            serta pemecahan masalah komputer.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+
+    <h2 class="title">Keahlian <span>TKJ</span></h2>
+
+    <div class="skills-container">
+
+        <div class="skill-card">
+            <div class="icon">💻</div>
+            <h3>Hardware Komputer</h3>
+            <p>
+                Mengenal komponen komputer, fungsi perangkat
+                keras, serta dasar perakitan komputer.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <div class="icon">🌐</div>
+            <h3>Jaringan Komputer</h3>
+            <p>
+                Mempelajari dasar jaringan LAN, topologi
+                jaringan, IP Address, dan konektivitas.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <div class="icon">⚙️</div>
+            <h3>Instalasi OS</h3>
+            <p>
+                Mengenal proses instalasi sistem operasi
+                dan pengaturan perangkat komputer.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <div class="icon">🔌</div>
+            <h3>Kabel Jaringan</h3>
+            <p>
+                Mempelajari jenis kabel UTP, konektor RJ45,
+                serta teknik crimping kabel jaringan.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <div class="icon">🖥️</div>
+            <h3>Troubleshooting</h3>
+            <p>
+                Mengenal cara mengidentifikasi dan
+                menyelesaikan masalah dasar komputer.
+            </p>
+        </div>
+
+        <div class="skill-card">
+            <div class="icon">📡</div>
+            <h3>Konfigurasi Jaringan</h3>
+            <p>
+                Mempelajari konfigurasi dasar perangkat
+                jaringan seperti router dan switch.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECT -->
+<section id="project">
+
+    <h2 class="title">Proyek & <span>Praktik</span></h2>
+
+    <div class="project-container">
+
+        <div class="project-card">
+            <h3>01. Perakitan Komputer</h3>
+            <p>
+                Mengenal komponen komputer dan mempelajari
+                langkah-langkah pemasangan komponen hardware
+                sesuai prosedur.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>02. Pembuatan Kabel LAN</h3>
+            <p>
+                Mempelajari pembuatan kabel jaringan
+                menggunakan kabel UTP dan konektor RJ45
+                dengan susunan kabel jaringan.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>03. Instalasi Sistem Operasi</h3>
+            <p>
+                Mempelajari tahapan instalasi sistem operasi
+                dan konfigurasi awal komputer.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>04. Konfigurasi Jaringan</h3>
+            <p>
+                Mempelajari pengaturan IP Address serta
+                dasar konfigurasi jaringan komputer
+                agar perangkat dapat saling terhubung.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+    <h2 class="title">Hubungi <span>Saya</span></h2>
+
+    <div class="contact-box">
+
+        <h3>Gresya Seltilina Siahaan</h3>
+
+        <p>
+            Terima kasih telah mengunjungi website
+            portofolio pribadi saya.
+        </p>
+
+        <p>
+            Saya senang dapat terus belajar,
+            berkembang, dan mengenal dunia teknologi.
+        </p>
+
+        <p><strong>Jurusan:</strong> Teknik Komputer dan Jaringan</p>
+
+        <p><strong>Email:</strong> Tambahkan email Anda</p>
+
+        <p><strong>Instagram:</strong> Tambahkan Instagram Anda</p>
+
+        <a href="#home" class="btn">Kembali ke Atas</a>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>
+        &copy; 2026 Gresya Seltilina Siahaan.
+        All Rights Reserved.
+    </p>
+    <p>Personal Portfolio | Teknik Komputer dan Jaringan</p>
+</footer>
+
+</body>
+</html>
